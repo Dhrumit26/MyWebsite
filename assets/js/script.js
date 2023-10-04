@@ -64,16 +64,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
 document.addEventListener("DOMContentLoaded", function () {
-  const text = "Dhrumit Savaliya"; // Change this to your desired name
+  const text = "Dhrumit Savaliya"; 
   const typingText = document.querySelector(".typing-text");
-  
+
   function typeWriter(text, i) {
       if (i < text.length) {
           typingText.textContent += text.charAt(i);
           setTimeout(() => typeWriter(text, i + 1), 100);
+      } else {
+          
+          setTimeout(() => {
+              typingText.textContent = ""; 
+              setTimeout(() => typeWriter(text, 0), 1000); 
+          }, 5000); 
       }
   }
-  
+
   typeWriter(text, 0);
 });
