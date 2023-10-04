@@ -47,22 +47,6 @@ window.addEventListener("scroll", function () {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const cards = document.querySelectorAll('.portfolio-card');
-  
-  cards.forEach(function (card) {
-      const viewBtn = card.querySelector('.view-project');
-      const closeBtn = card.querySelector('.close-btn');
-
-      viewBtn.addEventListener('click', function () {
-          card.style.transform = 'rotateY(180deg)';
-      });
-
-      closeBtn.addEventListener('click', function () {
-          card.style.transform = 'rotateY(0deg)';
-      });
-  });
-});
 
 
 document.addEventListener("DOMContentLoaded", function () {
