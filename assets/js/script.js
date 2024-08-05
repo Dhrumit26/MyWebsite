@@ -47,24 +47,56 @@ window.addEventListener("scroll", function () {
   }
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.portfolio-card');
+  
+  cards.forEach(function (card) {
+      const viewBtn = card.querySelector('.view-project');
+      const closeBtn = card.querySelector('.close-btn');
 
+      viewBtn.addEventListener('click', function () {
+          card.style.transform = 'rotateY(180deg)';
+      });
+
+      closeBtn.addEventListener('click', function () {
+          card.style.transform = 'rotateY(0deg)';
+      });
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
-  const text = "Dhrumit Savaliya"; 
+  const text = "Dhrumit Savaliya"; // Change this to your desired name
   const typingText = document.querySelector(".typing-text");
-
+  
   function typeWriter(text, i) {
       if (i < text.length) {
           typingText.textContent += text.charAt(i);
           setTimeout(() => typeWriter(text, i + 1), 100);
-      } else {
-          
-          setTimeout(() => {
-              typingText.textContent = ""; 
-              setTimeout(() => typeWriter(text, 0), 1000); 
-          }, 5000); 
       }
   }
-
+  
   typeWriter(text, 0);
 });
+
+
+  document.addEventListener('scroll', function() {
+    const scrollTop = window.scrollY;
+    const icons = document.querySelectorAll('.abs-icon');
+    
+    icons.forEach(icon => {
+      const rect = icon.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const angle = (scrollTop / 15) % 360; // Calculate rotation angle based on scroll position
+      const distance = 20; // Distance from the center to move in a circular pattern
+
+      // Calculate the new position based on the angle
+      const newX = centerX + distance * Math.cos(angle * (Math.PI / 100)) - centerX;
+      const newY = centerY + distance * Math.sin(angle * (Math.PI / 110)) - centerY;
+
+      // Apply the transformation
+      icon.style.transform = `translate(${newX}px, ${newY}px)`;
+    });
+  });
+
