@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const newX = centerX + distance * Math.cos(angle * (Math.PI / 100)) - centerX;
       const newY = centerY + distance * Math.sin(angle * (Math.PI / 110)) - centerY;
 
-      // Apply the transformation
+      // Apply the transformatio
       icon.style.transform = `translate(${newX}px, ${newY}px)`;
     });
   });
